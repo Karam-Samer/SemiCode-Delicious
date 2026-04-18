@@ -1,0 +1,245 @@
+:root {
+    --mainColor: #e4c590;
+    --bgColor1: #0e0d0c;
+    --bgColor2: #171819;
+    --color1: #a7a7a7;
+}
+
+.title h6 {
+    color: var(--mainColor);
+    letter-spacing: 2px;
+}
+
+.title img {
+    width: 100px;
+}
+
+.mainButton {
+    color: var(--mainColor);
+    border: 2px solid var(--mainColor);
+    padding: 15px 40px;
+    font-size: 14px;
+    background-color: transparent;
+    letter-spacing: 1.4px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.mainButton:before,
+.mainButton:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 50%;
+    background-color: var(--mainColor);
+    position: absolute;
+    left: 0;
+    transition-duration: .5s;
+    z-index: 1;
+}
+
+.mainButton:before {
+    bottom: -50%;
+}
+
+.mainButton:after {
+    top: -50%;
+}
+
+.mainButton:hover:before {
+    bottom: 0;
+}
+
+.mainButton:hover:after {
+    top: 0;
+}
+
+.mainButton span {
+    position: relative;
+    z-index: 2;
+    transition-duration: .5s;
+}
+
+.mainButton:hover span {
+    color: #fff;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e4c59080;
+    z-index: 0;
+    overflow: auto;
+    opacity: 0;
+    transition-duration: .5s;
+    pointer-events: none;
+}
+
+
+.popup.active {
+    opacity: 1;
+    z-index: 15;
+    pointer-events: auto;
+}
+
+.popup .box {
+    width: 600px;
+    background-color: var(--bgColor2);
+    margin: 30px auto;
+    color: #fff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition-duration: 1s;
+}
+
+
+
+.popup.active .box {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.popup .box>i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.popup .box p {
+    color: #a7a7a7;
+}
+
+form .input {
+    background-color: transparent;
+    border: 1px solid #a7a7a7;
+    border-radius: 5px;
+    padding: 8px 16px;
+    width: 100%;
+    color: #a7a7a7;
+}
+
+form textarea {
+    resize: none;
+}
+
+section:nth-of-type(odd) {
+    background-color: var(--bgColor1);
+    background-image: url("./../images/bg.png");
+}
+
+section:nth-of-type(even) {
+    background-color: var(--bgColor2);
+}
+
+section {
+    padding: 80px 0;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+section .header {
+    font-size: clamp(30px, 4vw, 50px);
+
+}
+
+.underLine {
+    text-decoration: none;
+    letter-spacing: 1.3px;
+    font-size: 14px;
+    color: var(--mainColor);
+    position: relative;
+    display: block;
+    width: fit-content;
+    margin: auto;
+}
+
+.underLine:after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 4px;
+    border-top: 1px solid var(--mainColor);
+    border-bottom: 1px solid var(--mainColor);
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transition-duration: .5s;
+}
+
+a {
+    text-decoration: none;
+
+}
+
+.rotating {
+    animation: rotating 10s linear infinite;
+}
+
+.square {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border: 2px solid var(--mainColor);
+    transform: rotate(45deg);
+}
+
+.popup.menu .img {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.popup.menu .body .img span {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    background-color: var(--mainColor);
+    color: #fff;
+    padding: 9px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    font-weight: bolder;
+}
+
+
+.popup.menu .img .arrow {
+    position: absolute;
+    top: 50%;
+    background-color: var(--mainColor);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+
+.popup.menu .img .arrow.prev {
+    left: 5%;
+}
+
+.popup.menu .img .arrow.next {
+    right: 5%;
+}
+
+.popup.menu .img .arrow:before {
+    transform: rotate(-45deg);
+}
